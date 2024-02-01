@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def charging_capacitor(V0, R, C, t):
+    tau = R * C
+    Vc = V0 * (1 - np.exp(-t / tau))
+    return Vc
+
+def discharging_capacitor(V0, R, C, t):
+    tau = R * C
+    Vc = V0 * np.exp(-t / tau)
+    return Vc
+
+V0 = 5.0
+R = 1000.0
+C = 0.001
+t = np.linspace(0, 5 * R * C, 500)
+
+Vc_charging = charging_capacitor(V0, R, C, t)
+Vc_discharging = discharging_capacitor(V0, R, C, t)
+
+plt.figure(figsize=(10, 5))
+
+plt.subplot(121)
+plt.plot(t, Vc_charging, label='Charging')
+plt.title('Charging Capacitor')
+plt.xlabel('Time (s)')
+plt.ylabel('Voltage (V)')
+plt.legend()
+
+plt.subplot(122)
+plt.plot(t, Vc_discharging, label='Discharging', color='orange')
+plt.title('Discharging Capacitor')
+plt.xlabel('Time (s)')
+plt.ylabel('Voltage (V)')
+plt.legend()
+
+plt.tight_layout()
+plt.show()
