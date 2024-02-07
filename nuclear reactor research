@@ -1,0 +1,34 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("nuclear_reactor_data.csv")
+
+print("First few rows of the dataset:")
+print(data.head())
+
+print("\nSummary statistics:")
+print(data.describe())
+
+plt.figure(figsize=(10, 6))
+plt.plot(data['Time'], data['Reactor Power'], marker='o', linestyle='-')
+plt.title('Reactor Power Over Time')
+plt.xlabel('Time')
+plt.ylabel('Reactor Power')
+plt.grid(True)
+plt.show()
+
+plt.figure(figsize=(10, 6))
+plt.plot(data['Time'], data['Coolant Flow Rate'], marker='o', linestyle='-')
+plt.title('Coolant Flow Rate Over Time')
+plt.xlabel('Time')
+plt.ylabel('Coolant Flow Rate')
+plt.grid(True)
+plt.show()
+
+plt.figure(figsize=(10, 6))
+plt.plot(data['Time'], data['Temperature'], marker='o', linestyle='-')
+plt.title('Temperature Readings Over Time')
+plt.xlabel('Time')
+plt.ylabel('Temperature')
+plt.grid(True)
+plt.show()
