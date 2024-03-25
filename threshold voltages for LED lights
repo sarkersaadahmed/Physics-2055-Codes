@@ -1,0 +1,13 @@
+import matplotlib.pyplot as plt
+
+trial_numbers = list(range(1, 29))
+voltages_red = [1.648, 1.716, 1.76, 1.788, 1.812, 1.836, 1.856, 1.876, 1.912, 1.918, 
+                1.924, 1.94, 1.956, 1.968, 1.984, 2.0, 2.02, 2.033, 2.04, 2.061, 
+                2.068, 2.08, 2.088, 2.104, 2.12, 2.129, 2.144, 2.145]
+
+plt.plot(trial_numbers, voltages_red, marker='o', linestyle='-', color='red')
+plt.xlabel('current')
+plt.ylabel('Voltage (V)')
+plt.title('Threshold Voltage Measurements for Red LED')
+plt.grid(True)
+plt.show()
